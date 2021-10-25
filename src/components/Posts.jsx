@@ -16,6 +16,7 @@ const Posts = () => {
     currentPage,
     setFilteredData,
     setSearching,
+    filteredData
   } = usePagination(data, 10);
 
   const columns = [
@@ -29,7 +30,7 @@ const Posts = () => {
     e.preventDefault();
     if (search.trim() !== "") {
       setSearching(true);
-      const copyData = [...data];
+      const copyData = [...filteredData];
       const filterData = copyData?.filter((items) =>
         items.title.toLowerCase().includes(search.trim().toLowerCase())
       );
@@ -37,13 +38,13 @@ const Posts = () => {
     }
   };
 
-  const sortUp = (sortByKey) => {
-    const copyData = [...data];
+  const sortASC = (sortByKey) => {
+    const copyData = [...filteredData];
     const sortASC = copyData.sort((a, b) => a[sortByKey] - b[sortByKey]);
     setFilteredData(sortASC);
   };
-  const sortDown = (sortByKey) => {
-    const copyData = [...data];
+  const sortDESC = (sortByKey) => {
+    const copyData = [...filteredData];
     const sortDESC = copyData.sort((a, b) => a[sortByKey] - b[sortByKey]).reverse();
     setFilteredData(sortDESC);
   };
@@ -71,13 +72,13 @@ const Posts = () => {
                 <span>{item.label}</span>
                 <span
                   style={{ cursor: "pointer" }}
-                  onClick={() => sortUp(item.sortByKey)}
+                  onClick={() => sortASC(item.sortByKey)}
                 >
                   &and;
                 </span>
                 <span
                   style={{ cursor: "pointer" }}
-                  onClick={() => sortDown(item.sortByKey)}
+                  onClick={() => sortDESC(item.sortByKey)}
                 >
                   &or;
                 </span>

@@ -67,6 +67,7 @@ const usePagination = (data, itemsPage = 10) => {
     pages,
     setFilteredData,
     setSearching,
+    filteredData
   };
 };
 export default usePagination;
