@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getData } from "./redux/actions/apiAction";
-import Users from "./components/Users";
+import Posts from "./components/Posts";
 import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const App = () => {
   }, [dispatch]);
   return (
     <Fragment>
-      <Users />
+      <Posts />
     </Fragment>
   );
 };

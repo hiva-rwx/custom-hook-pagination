@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import usePagination from "../hooks/usePagination";
 import Pagination from "./pagination";
 
-const Users = () => {
+const Posts = () => {
   const { data, loading, error } = useSelector((state) => state.data);
   const [search, setSearch] = useState("");
   const {
@@ -116,4 +116,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Posts;
